@@ -7,8 +7,8 @@ Permite administrar libros, usuarios y préstamos, garantizando el control de st
 
 Este proyecto fue desarrollado con fines educativos para practicar:
 - **Programación Orientada a Objetos (POO)**
-- **Persistencia en base de datos relacional (MySQL/PostgreSQL)**
-- **Patrones DAO/Repository y servicios**
+- **Persistencia en base de datos relacional (MySQL)**
+- **Patrones DAO y servicios**
 - **Validaciones y reglas de negocio**
 
 ---
@@ -55,8 +55,8 @@ Este proyecto fue desarrollado con fines educativos para practicar:
 
 ## 🏗️ Arquitectura del proyecto
 - **Modelo (Entities):** `Usuario`, `Libro`, `Prestamo`
-- **DAO/Repository:** Manejo de datos en BD (JDBC o JPA/Hibernate)
-- **Servicio:** Reglas de negocio (validaciones: stock, duplicados, etc.)
+- **DAO** Manejo de datos en BD (JDBC)
+- **Servicio:** Lógica y Reglas de negocio (validaciones: stock, duplicados, etc.)
 - **Presentación:** Menú en consola
 
 ---
@@ -85,14 +85,7 @@ Este proyecto fue desarrollado con fines educativos para practicar:
 2. Crear la base de datos en MySQL:
    ```bash 
    CREATE DATABASE biblioteca_db;
-3. Configurar `application.properties`:
-   ```bash
-   spring.datasource.url=jdbc:mysql://localhost:3306/biblioteca_db
-   spring.datasource.username=your_username
-   spring.datasource.password=your_password
-   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver  
-   spring.jpa.hibernate.ddl-auto=update
-4. Ejecutar la aplicación desde el IDE o terminal:
+3. Ejecutar la aplicación desde el IDE o terminal:
    ```bash
    mvn clean install
    mvn exec:java
