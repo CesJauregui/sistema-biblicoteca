@@ -88,7 +88,8 @@ Este proyecto fue desarrollado con fines educativos para practicar:
 3. Ejecutar la aplicación desde el IDE o terminal:
    ```bash
    mvn clean install
-   mvn exec:java
+   mvn clean package shade:shade
+   java -jar target/SistemaBiblioteca-1.0-SNAPSHOT-shaded.jar
 ---
 ## 📝 Licencia
 Este proyecto es de uso libre para fines académicos y de aprendizaje.

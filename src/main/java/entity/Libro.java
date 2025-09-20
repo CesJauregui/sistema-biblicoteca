@@ -8,6 +8,8 @@ public class Libro {
     private String genero;
     private Integer cantidadDisponible;
 
+    public Libro() {}
+
     public Libro(String titulo, String autor, String anioPublicacion,
                  String genero, Integer cantidadDisponible) {
         this.titulo = titulo;
