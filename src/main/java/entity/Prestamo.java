@@ -9,6 +9,13 @@ public class Prestamo {
     private String fechaPrestamo;
     private String fechaDevolucion;
     private EstadoPrestamo estado;
+    private String nombreUsuario;
+
+    public Prestamo(String fechaPrestamo, String fechaDevolucion, EstadoPrestamo estado) {
+        this.fechaPrestamo = fechaPrestamo;
+        this.fechaDevolucion = fechaDevolucion;
+        this.estado = estado;
+    }
 
     public Prestamo(Long usuarioId, Long libroId, String fechaPrestamo,
                     String fechaDevolucion, EstadoPrestamo estado) {
@@ -75,5 +82,13 @@ public class Prestamo {
 
     public void setEstado(EstadoPrestamo estado) {
         this.estado = estado;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 }

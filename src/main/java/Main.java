@@ -1,5 +1,6 @@
 import service.LibroService;
 import service.PrestamoService;
+import service.ReporteService;
 import service.UsuarioService;
 
 import java.util.Scanner;
@@ -10,6 +11,7 @@ public class Main {
         UsuarioService usuarioService = new UsuarioService();
         LibroService libroService = new LibroService();
         PrestamoService prestamoService = new PrestamoService();
+        ReporteService reporteService = new ReporteService();
         Scanner scanner = new Scanner(System.in);
 
         int actionMain = 0;
@@ -128,7 +130,33 @@ public class Main {
                     actionMain = 0;
 
                 } else if (actionMain == 4) {
-                    System.out.println("Reportes");
+                    int action;
+                    System.out.println("""
+                            ┌-------------------------------------------┐
+                            │            Módulo de Reportes             │
+                            └-------------------------------------------┘
+                            """);
+                    do {
+                        System.out.println("""
+                                ¿Qué acción quiere hacer? Elija la opción:
+                                1. Libros disponibles
+                                2. Libros prestados actualmente
+                                3. Historial de préstamos por usuario
+                                4. Ir a menú principal
+                                """);
+                        System.out.print("Opción: ");
+                        action = scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (action == 1) {
+                            reporteService.librosDisponible();
+                        } else if (action == 2) {
+                            reporteService.LibrosPrestados();
+                        } else if (action == 3) {
+                            reporteService.prestamosPorUsuario(scanner);
+                        }
+                    } while (action != 4);
+                    actionMain = 0;
                 }
             }
         } while (actionMain != 5);
