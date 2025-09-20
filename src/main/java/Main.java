@@ -1,4 +1,5 @@
 import service.LibroService;
+import service.PrestamoService;
 import service.UsuarioService;
 
 import java.util.Scanner;
@@ -8,16 +9,17 @@ public class Main {
     public static void main(String[] args) {
         UsuarioService usuarioService = new UsuarioService();
         LibroService libroService = new LibroService();
+        PrestamoService prestamoService = new PrestamoService();
         Scanner scanner = new Scanner(System.in);
 
         int actionMain = 0;
 
         do {
             System.out.println("""
-                            ┌------------------------------------------┐
-                            │     Sistema de Gestión de Biblioteca     │
-                            └------------------------------------------┘
-                            """);
+                    ┌------------------------------------------┐
+                    │     Sistema de Gestión de Biblioteca     │
+                    └------------------------------------------┘
+                    """);
             if (actionMain == 0) {
                 System.out.println("""
                         ¿A qué módulo quiere ingresar?
@@ -99,7 +101,32 @@ public class Main {
                     actionMain = 0;
 
                 } else if (actionMain == 3) {
-                    System.out.println("Gestión de préstamos");
+                    int action;
+                    System.out.println("""
+                            ┌-------------------------------------------┐
+                            │            Módulo de Préstamos            │
+                            └-------------------------------------------┘
+                            """);
+                    do {
+                        System.out.println("""
+                                ¿Qué acción quiere hacer? Elija la opción:
+                                1. Registrar préstamo
+                                2. Registrar devolución
+                                3. Ir a menú principal
+                                """);
+
+                        System.out.print("Opción: ");
+                        action = scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (action == 1) {
+                            prestamoService.newPrestamo(scanner);
+                        } else if (action == 2) {
+                            prestamoService.devolucion(scanner);
+                        }
+                    } while (action != 3);
+                    actionMain = 0;
+
                 } else if (actionMain == 4) {
                     System.out.println("Reportes");
                 }
